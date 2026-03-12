@@ -31,7 +31,13 @@ export default function Carousel() {
   };
 
   return (
-    <div className="bg-[var(--cft-bg-dark)] py-10 mt-20">
+    <div id="features" className="bg-[var(--cft-bg-dark)] py-10 mt-20">
+      <div className="text-center mb-16 max-w-3xl mx-auto px-6">
+        <h2 className="font-display text-4xl md:text-5xl font-bold tracking-tight">
+          Discover <span className="text-gradient-blue">Platform</span> Features
+        </h2>
+      </div>
+
       <div className="w-11/12 md:w-5/6 mx-auto">
         <Slider {...settings}>
           {images.map((src, index) => (

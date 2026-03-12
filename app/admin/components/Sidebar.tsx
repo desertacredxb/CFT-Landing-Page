@@ -35,7 +35,7 @@ export default function Sidebar() {
           onClick={logout}
           className="mt-10 text-red-400 border border-red-500 px-3 py-2 cursor-pointer hover:bg-red-500 hover:text-white"
         >
-          Logout
+          Logout →
         </button>
       </nav>
     </aside>

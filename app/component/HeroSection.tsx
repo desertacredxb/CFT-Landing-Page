@@ -19,7 +19,7 @@ export default function Hero() {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 max-w-4xl mx-auto">
+      <div className="relative z-10 max-w-4xl mx-auto py-28 md:py-14">
         {/* Top Badge */}
         <motion.div
           initial={{ opacity: 0, y: 15 }}
@@ -31,7 +31,7 @@ export default function Hero() {
             Prime
           </span>
 
-          <span>Close Friend Traders — Save 50% Now!</span>
+          <span>Close Friend Traders — Get 5% Bonus Now!</span>
         </motion.div>
 
         {/* Heading */}
@@ -41,10 +41,8 @@ export default function Hero() {
           transition={{ duration: 0.6 }}
           className="font-display text-5xl md:text-6xl lg:text-7xl font-extrabold leading-[1.1] tracking-tight"
         >
-          Empower Your Financial
-          <br />
-          Future with{" "}
-          <span className="text-gradient-blue glow-text">Smart Trading</span>
+          India’s Most Powerful Leverage
+          <span className="text-gradient-blue glow-text">Trading Platform</span>
         </motion.h1>
 
         {/* Description */}
@@ -54,8 +52,8 @@ export default function Hero() {
           transition={{ duration: 0.7 }}
           className="mt-6 text-lg md:text-xl text-[var(--cft-text-muted)] max-w-2xl mx-auto leading-relaxed"
         >
-          Join millions of traders who trust our platform for real-time
-          insights, powerful tools, and seamless trading experience.
+          Trade multiple markets with small capital and experience smooth
+          trading with Tradedost.
         </motion.p>
 
         {/* CTA Buttons */}
@@ -70,13 +68,45 @@ export default function Hero() {
             href="#leadform"
             className="px-8 py-3 rounded-full bg-[var(--cft-primary)] hover:bg-[var(--cft-primary-hover)] text-white font-medium transition glow-blue"
           >
-            Start Trading Now →
+            Open Trading Account →
           </Link>
 
           {/* Secondary CTA */}
-          <button className="px-8 py-3 rounded-full border border-[var(--cft-border-bright)] text-white hover:bg-[var(--cft-bg-surface)] transition">
+          <Link
+            href="#features"
+            className="px-8 py-3 rounded-full border border-[var(--cft-border-bright)] text-white hover:bg-[var(--cft-bg-surface)] transition"
+          >
             Explore Features
-          </button>
+          </Link>
+        </motion.div>
+
+        {/* Feature Grid */}
+        <motion.div
+          initial={{ opacity: 0, y: 25 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.75 }}
+          className="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-2xl mx-auto"
+        >
+          {[
+            "500X Margin Trading",
+            "Fast Withdrawal System",
+            "Best Client Support",
+            "Smooth Trading Experience",
+          ].map((feature, index) => (
+            <div
+              key={index}
+              className="flex items-center gap-3 px-5 py-3 rounded-xl 
+      bg-[var(--cft-bg-surface)] border border-[var(--cft-border)] 
+      backdrop-blur-md hover:border-[var(--cft-primary)] 
+      transition duration-300"
+            >
+              <span className="text-xl text-[var(--cft-primary)]">⚡</span>
+
+              <span className="text-sm md:text-base text-white font-medium">
+                {feature}
+              </span>
+            </div>
+          ))}
         </motion.div>
       </div>
     </section>

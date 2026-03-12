@@ -85,14 +85,14 @@ export default function LeadForm() {
   };
 
   return (
-    <section id="leadform" className="px-6 bg-[var(--cft-bg-dark)]">
+    <section id="leadform" className="px-6 bg-[var(--cft-bg-dark)] py-12">
       <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
         {/* Left Image */}
         <motion.div
           initial={{ opacity: 0, x: -40 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6 }}
-          className="hidden md:block"
+          // className="hidden md:block"
         >
           <img
             src="/lead-image.png"
