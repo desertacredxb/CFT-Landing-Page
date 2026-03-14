@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { useRef, useState } from "react";
+import { scrollToLeadForm } from "../utils/scrollToLeadForm";
 
 const features = [
   {
@@ -167,12 +168,12 @@ export default function WhyTrade() {
 
       {/* CTA Button */}
       <div className="flex justify-center mt-16">
-        <Link
-          href="#leadform"
+        <button
+          onClick={scrollToLeadForm}
           className="px-8 py-3 rounded-full cursor-pointer bg-[var(--cft-primary)] hover:bg-[var(--cft-primary-hover)] glow-blue transition font-medium"
         >
           Start Trading Now →
-        </Link>
+        </button>
       </div>
     </section>
   );

@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { scrollToLeadForm } from "../utils/scrollToLeadForm";
 
 export default function Hero() {
   return (
@@ -18,9 +19,9 @@ export default function Hero() {
         />
       </div>
 
-      {/* Content */}
       <div className="relative z-10 max-w-4xl mx-auto pt-28 pb-8 md:py-14">
-        {/* Top Badge */}
+
+        {/* Badge */}
         <motion.div
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
@@ -42,7 +43,9 @@ export default function Hero() {
           className="font-display text-5xl md:text-6xl lg:text-7xl font-extrabold leading-[1.1] tracking-tight"
         >
           India’s Most Powerful Leverage
-          <span className="text-gradient-blue glow-text">Trading Platform</span>
+          <span className="text-gradient-blue glow-text">
+            Trading Platform
+          </span>
         </motion.h1>
 
         {/* Description */}
@@ -56,22 +59,20 @@ export default function Hero() {
           trading with Tradedost.
         </motion.p>
 
-        {/* CTA Buttons */}
+        {/* CTA */}
         <motion.div
           initial={{ opacity: 0, y: 25 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           className="mt-10 flex flex-col sm:flex-row gap-4 justify-center"
         >
-          {/* Primary CTA */}
-          <Link
-            href="#leadform"
-            className="px-8 py-3 rounded-full bg-[var(--cft-primary)] hover:bg-[var(--cft-primary-hover)] text-white font-medium transition glow-blue"
+          <button
+            onClick={scrollToLeadForm}
+            className="px-8 py-3 rounded-full bg-[var(--cft-primary)] hover:bg-[var(--cft-primary-hover)] text-white font-medium transition glow-blue cursor-pointer"
           >
             Open Trading Account →
-          </Link>
+          </button>
 
-          {/* Secondary CTA */}
           <Link
             href="#features"
             className="px-8 py-3 rounded-full border border-[var(--cft-border-bright)] text-white hover:bg-[var(--cft-bg-surface)] transition"
@@ -80,7 +81,7 @@ export default function Hero() {
           </Link>
         </motion.div>
 
-        {/* Feature Grid */}
+        {/* Features */}
         <motion.div
           initial={{ opacity: 0, y: 25 }}
           animate={{ opacity: 1, y: 0 }}
@@ -95,7 +96,7 @@ export default function Hero() {
           ].map((feature, index) => (
             <div
               key={index}
-              className="flex items-center gap-3 px-5 py-3 rounded-xl bg-[var(--cft-bg-surface)] border border-[var(--cft-border)]backdrop-blur-md hover:border-[var(--cft-primary)] transition duration-300"
+              className="flex items-center gap-3 px-5 py-3 rounded-xl bg-[var(--cft-bg-surface)] border border-[var(--cft-border)] backdrop-blur-md hover:border-[var(--cft-primary)] transition duration-300"
             >
               <span className="text-xl text-[var(--cft-primary)]">⚡</span>
 
@@ -106,20 +107,21 @@ export default function Hero() {
           ))}
         </motion.div>
 
+        {/* Bottom CTA */}
         <motion.div
           initial={{ opacity: 0, y: 25 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="mt-10 flex flex-col sm:flex-row gap-4 justify-center"
+          className="mt-10 flex justify-center"
         >
-          {/* Primary CTA */}
-          <Link
-            href="#leadform"
-            className="px-8 py-3 rounded-full bg-[var(--cft-primary)] hover:bg-[var(--cft-primary-hover)] text-white font-medium transition glow-blue"
+          <button
+            onClick={scrollToLeadForm}
+            className="px-8 py-3 rounded-full bg-[var(--cft-primary)] hover:bg-[var(--cft-primary-hover)] text-white font-medium transition glow-blue cursor-pointer"
           >
             Open Trading Account →
-          </Link>
+          </button>
         </motion.div>
+
       </div>
     </section>
   );

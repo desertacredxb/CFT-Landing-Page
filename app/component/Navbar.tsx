@@ -5,6 +5,24 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 
 export default function Navbar() {
+
+  const scrollToLeadForm = () => {
+    const section = document.getElementById("leadform");
+
+    if (section) {
+      const yOffset = -100; // adjust for fixed navbar height
+      const y =
+        section.getBoundingClientRect().top +
+        window.pageYOffset +
+        yOffset;
+
+      window.scrollTo({ top: y, behavior: "smooth" });
+
+      // update url hash so users can share link
+      window.history.replaceState(null, "", "#leadform");
+    }
+  };
+
   return (
     <motion.header
       initial={{ y: -80, opacity: 0 }}
@@ -26,12 +44,12 @@ export default function Navbar() {
 
       {/* Desktop CTA */}
       <div className="md:flex items-center gap-4">
-        <Link
-          href="#leadform"
-          className="px-6 py-2.5 rounded-full bg-[var(--cft-primary)] hover:bg-[var(--cft-primary-hover)] text-white text-sm font-semibold transition shadow-lg shadow-blue-500/20"
+        <button
+          onClick={scrollToLeadForm}
+          className="px-6 py-2.5 rounded-full bg-[var(--cft-primary)] hover:bg-[var(--cft-primary-hover)] text-white text-sm font-semibold transition shadow-lg shadow-blue-500/20 cursor-pointer"
         >
           Open Account
-        </Link>
+        </button>
       </div>
     </motion.header>
   );
