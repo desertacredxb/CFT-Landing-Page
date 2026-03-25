@@ -43,8 +43,6 @@ export default function LeadsTable() {
   const filteredLeads = useMemo(() => {
     let filtered = [...leads];
 
-    /* Search */
-
     if (search) {
       filtered = filtered.filter(
         (lead) =>
