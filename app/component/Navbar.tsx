@@ -5,16 +5,13 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 
 export default function Navbar() {
-
   const scrollToLeadForm = () => {
     const section = document.getElementById("leadform");
 
     if (section) {
       const yOffset = -100; // adjust for fixed navbar height
       const y =
-        section.getBoundingClientRect().top +
-        window.pageYOffset +
-        yOffset;
+        section.getBoundingClientRect().top + window.pageYOffset + yOffset;
 
       window.scrollTo({ top: y, behavior: "smooth" });
 
@@ -33,7 +30,7 @@ export default function Navbar() {
       {/* Logo */}
       <Link href="/" className="flex items-center">
         <Image
-          src="/logo-cft.png"
+          src="/cft-logo-rec.png"
           alt="Close Friend Traders Logo"
           width={180}
           height={80}

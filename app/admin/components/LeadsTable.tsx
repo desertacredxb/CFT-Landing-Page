@@ -36,6 +36,8 @@ export default function LeadsTable() {
     fetchLeads();
   }, []);
 
+  console.log(leads);
+
   /* ---------------- Filters ---------------- */
 
   const filteredLeads = useMemo(() => {
@@ -95,6 +97,16 @@ export default function LeadsTable() {
     fetchLeads();
   };
 
+  const updateLeadStatus = async (id: string, status: string) => {
+    await fetch(`${API}/api/leads/lead-status/${id}`, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ status }),
+    });
+
+    fetchLeads();
+  };
+
   /* ---------------- Confirm Handler ---------------- */
 
   const handleConfirm = async () => {
@@ -104,8 +116,12 @@ export default function LeadsTable() {
       await deleteLead(confirmAction.id);
     }
 
-    if (confirmAction.type === "status") {
+    if (confirmAction.type === "accountStatus") {
       await updateStatus(confirmAction.id, confirmAction.value);
+    }
+
+    if (confirmAction.type === "leadStatus") {
+      await updateLeadStatus(confirmAction.id, confirmAction.value);
     }
 
     setConfirmAction(null);
@@ -218,6 +234,7 @@ export default function LeadsTable() {
                 <th className="p-3 text-left">Phone</th>
                 <th className="p-3 text-left">City</th>
                 <th className="p-3 text-left">Status</th>
+                <th className="p-3 text-left">Account Status</th>
                 <th className="p-3 text-left">Created</th>
                 <th className="p-3 text-left">Actions</th>
               </tr>
@@ -244,7 +261,7 @@ export default function LeadsTable() {
                       value={lead.accountStatus}
                       onChange={(e) =>
                         setConfirmAction({
-                          type: "status",
+                          type: "accountStatus",
                           id: lead._id,
                           value: e.target.value,
                         })
@@ -254,6 +271,24 @@ export default function LeadsTable() {
                       <option>In Process</option>
                       <option>Demo Shared</option>
                       <option>ID Created</option>
+                    </select>
+                  </td>
+
+                  <td className="p-3">
+                    <select
+                      value={lead.status}
+                      onChange={(e) =>
+                        setConfirmAction({
+                          type: "leadStatus",
+                          id: lead._id,
+                          value: e.target.value.toLowerCase(),
+                        })
+                      }
+                      className="bg-[var(--cft-bg-surface)] p-2 rounded"
+                    >
+                      <option value="pending">Pending</option>
+                      <option value="contacted">Contacted</option>
+                      <option value="rejected">Rejected</option>
                     </select>
                   </td>
 

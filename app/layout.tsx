@@ -16,6 +16,9 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Close Friend Traders",
   description: "Smart trading platform with powerful tools and insights.",
+  icons: {
+    icon: "/cft-logo-ill.jpeg",
+  },
 };
 
 export default function RootLayout({
